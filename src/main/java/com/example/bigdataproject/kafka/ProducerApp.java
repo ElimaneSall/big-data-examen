@@ -133,8 +133,6 @@ public class ProducerApp {
 
                 kafkaProducer.send(new ProducerRecord<>(TOPIC_NAME, key, selectedData.toString()), (metadata, ex) -> {
                     if (ex == null) {
-
-
                         System.out.println("Sent weather data => " + selectedData.toString() + ", Partition => " + metadata.partition() + ", Offset => " + metadata.offset());
                     } else {
                         System.err.println("Error sending weather data: " + ex.getMessage());
